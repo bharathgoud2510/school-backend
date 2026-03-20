@@ -11,10 +11,9 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/test", (req, res) => {
-  res.json({ message: "API working" });
+  res.send("API working ✅");
 });
 
-// VERY IMPORTANT
 const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, "0.0.0.0", () => {
