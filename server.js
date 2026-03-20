@@ -2,26 +2,21 @@ const express = require("express");
 const cors = require("cors");
 
 const app = express();
+
 app.use(cors());
 app.use(express.json());
-
-let enquiries = [];
 
 app.get("/", (req, res) => {
   res.send("Backend is running 🚀");
 });
 
-app.post("/api/admissions", (req, res) => {
-  const data = req.body;
-  enquiries.push(data);
-  res.json({ message: "Saved successfully" });
+app.get("/api/test", (req, res) => {
+  res.json({ message: "API working" });
 });
 
-app.get("/api/admissions", (req, res) => {
-  res.json(enquiries);
-});
+// VERY IMPORTANT
+const PORT = process.env.PORT || 8080;
 
-const PORT = process.env.PORT;
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log("Server running on port " + PORT);
 });
